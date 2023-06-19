@@ -22,11 +22,14 @@ DELIMITER ;
 
 #随机生成数字
 DELIMITER $$
-CREATE FUNCTION rand_num RETURNS INT(5)
+CREATE FUNCTION rand_num() RETURNS INT(5)
 BEGIN
-    DECLARE num INT DEFAULT 0;
+    DECLARE num INT(5) DEFAULT 0;
     SET num = FLOOR(100+RAND()*10);
     RETURN num;
 END $$
 DELIMITER ;
 #INT(5),5不代表值的宽度,INT类型在mysql中最大4字节,是配合zerofill属性为值补零使用
+
+#删除
+# DROP FUNCTION rand_string;
